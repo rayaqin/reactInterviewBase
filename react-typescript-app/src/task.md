@@ -16,9 +16,6 @@ https://pokeapi.co/api/v2/pokemon/alakazam
 
 Please explain the relevant part of your thought process as you go along.
 
-## Bonus Challenge
+<hr />
 
-If you have time:
-
-- Use a Promise race for multiple pokeapi calls for different pokemon
-- Only render the two tables for the fastest response
+<img src="./assets/exampleDone.png" height="400" />

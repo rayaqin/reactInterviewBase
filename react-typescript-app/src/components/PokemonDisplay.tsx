@@ -12,7 +12,7 @@ const PokemonDisplay: React.FC<PokemonDisplayProps> = ({ nameOfPokemon }) => {
   if (error) return <div>Error: {error.message}</div>
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full bg-[#222252]">
       {data?.abilities && data?.held_items && <AgGridTables pokemonData={data} />}
     </div>
   )

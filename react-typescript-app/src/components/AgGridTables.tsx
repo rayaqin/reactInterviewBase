@@ -43,18 +43,20 @@ const AgGridTables: React.FC<AgGridTableProps> = ({ pokemonData }) => {
   }
 
   return (
-    <div className="flex flex-col gap-4 h-full mx-4 bg-[#121111]">
+    <div className="p-2 flex flex-col justify-start gap-2">
       <AgGridReact
         theme={themeQuartz}
         rowData={abilityRowData}
         columnDefs={abilityColDefs}
         defaultColDef={defaultColDef}
+        domLayout="autoHeight"
       />
       <AgGridReact
         theme={themeQuartz}
         rowData={heldItemRowData}
         columnDefs={heldItemColDefs}
         defaultColDef={defaultColDef}
+        domLayout="autoHeight"
       />
     </div>
   )
