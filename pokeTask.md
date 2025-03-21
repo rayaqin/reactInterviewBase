@@ -18,4 +18,4 @@ Please explain the relevant part of your thought process as you go along.
 
 <hr />
 
-<img src="./src/assets/exampleDone.png" height="400" />
+<img src="./react-typescript-app/src/assets/exampleDone.png" height="400" />
