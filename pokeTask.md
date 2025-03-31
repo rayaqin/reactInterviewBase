@@ -18,4 +18,5 @@ Please explain the relevant part of your thought process as you go along.
 
 <hr />
 
+Below you can see a very simple example of what the solution might look like:
 <img src="./react-typescript-app/src/assets/exampleDone.png" height="400" />
