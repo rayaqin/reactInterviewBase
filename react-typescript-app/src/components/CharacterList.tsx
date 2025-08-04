@@ -8,7 +8,6 @@ export const CharacterList: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [loading, setLoading] = useState(false)
 
-  // Issue: Query data fetching without proper error handling
   useEffect(() => {
     const loadCharacters = async () => {
       setLoading(true)
@@ -25,7 +24,6 @@ export const CharacterList: React.FC = () => {
     loadCharacters()
   }, [searchTerm])
 
-  // Issue: Very inefficient unique check with stringify and nested loops
   const uniqueCharacters = useMemo(() => {
     return characters.filter((char, index) => {
       for (let i = 0; i < index; i++) {
@@ -37,7 +35,6 @@ export const CharacterList: React.FC = () => {
     })
   }, [characters])
 
-  // Issue: Inefficient sorting
   const sortedCharacters = [...uniqueCharacters].sort((a, b) => {
     const nameA = a.name.toLowerCase()
     const nameB = b.name.toLowerCase()
@@ -60,12 +57,11 @@ export const CharacterList: React.FC = () => {
         placeholder="Search characters..."
       />
 
-      <p>Total Characters: {charactersCount}</p>
+      <p>Total unique characters on this page: {charactersCount}</p>
 
       {loading ? (
         <p>Loading...</p>
       ) : (
-        // Issue: Missing key prop in list
         <>
           <h2>Character sorted by name alphabetically:</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

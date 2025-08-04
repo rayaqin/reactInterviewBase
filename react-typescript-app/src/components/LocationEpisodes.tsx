@@ -2,36 +2,30 @@ import React, { useEffect, useState } from 'react'
 import { Location, Episode } from '../types'
 import { fetchData, getLocationResidents } from '../utils/api'
 
-// Issue: TypeScript inference error with incorrect type
-interface Props {
-  locationId: string // Should be number but typed as string intentionally
+interface LocationEpisodesProps {
+  locationId: string
 }
 
-export const LocationEpisodes: React.FC<Props> = ({ locationId }) => {
+export const LocationEpisodes: React.FC<LocationEpisodesProps> = ({ locationId }) => {
   const [location, setLocation] = useState<Location | null>(null)
   const [episodes, setEpisodes] = useState<Episode[]>([])
 
-  // Issue: Query parallelization problem - sequential fetches instead of parallel
   useEffect(() => {
     const fetchLocationData = async () => {
-      // First fetch location
       const locationData = await fetchData(`location/${locationId}`)
       setLocation(locationData)
 
-      // Get all residents in parallel
-      const residentPromises = await getLocationResidents(Number(locationId))
-      const residents = await Promise.all(residentPromises)
-
-      // Get all episode URLs from all residents
-      const episodeUrls = new Set(residents.flatMap((resident) => resident.episode))
-
-      // Fetch all episodes in parallel
-      const episodePromises = Array.from(episodeUrls).map((url) =>
-        fetchData(`episode/${url.split('/').pop()}`)
-      )
-      const allEpisodes = await Promise.all(episodePromises)
-
-      setEpisodes(allEpisodes)
+      const residents = await getLocationResidents(locationId)
+      for (const resident of residents) {
+        const residentData = await resident
+        const episodePromises = residentData.episode.map((url: string) =>
+          fetchData(`episode/${url.split('/').pop()}`)
+        )
+        for (const episodePromise of episodePromises) {
+          const episode = await episodePromise
+          setEpisodes((prev) => [...prev, episode])
+        }
+      }
     }
 
     fetchLocationData()
@@ -45,7 +39,9 @@ export const LocationEpisodes: React.FC<Props> = ({ locationId }) => {
       <p>Dimension: {location.dimension}</p>
       <p>Type: {location.type}</p>
 
-      <h3 className="text-xl mt-4 mb-2">Episodes featuring residents:</h3>
+      <h3 className="text-xl mt-4 mb-2">
+        List of character who have been last seen in the location:
+      </h3>
       <ul className="list-disc pl-4">
         {episodes.map((episode) => (
           <li key={episode.id} className="mb-2">
