@@ -1,0 +1,107 @@
+$color__black: #323333;
+$color__blue: #71e8ff;
+$color__pink: #c43849;
+$color__pink--dark: #4b0711;
+$color__white: #fcffff;
+
+$stroke__width: 12;
+
+path {
+  fill: transparent;
+  stroke: red;
+}
+
+.meeseeks__frame {
+  background-color: #797b66;
+  height: 100vh;
+  width: 100vw;
+}
+
+.meeseeks {
+  height: 100vh;
+  max-height: 100%;
+  width: 100vw;
+}
+
+.meeseeks__arm--fill {
+  fill: $color__blue;
+  stroke: transparent;
+}
+.meeseeks__arm--stroke {
+  fill: transparent;
+  stroke: $color__black;
+  stroke-width: $stroke__width;
+}
+
+.meeseeks__eye {
+  fill: $color__black;
+  stroke: transparent;
+}
+.meeseeks__eye-brow {
+  fill: transparent;
+  stroke: $color__black;
+  stroke-width: calc($stroke__width / 3);
+}
+.meeseeks__eye-glint {
+  fill: #ffffff;
+  stroke: transparent;
+}
+.meeseeks__hand--fill {
+  fill: $color__blue;
+  stroke: transparent;
+}
+.meeseeks__hand--stroke {
+  fill: transparent;
+  stroke: $color__black;
+  stroke-width: $stroke__width;
+}
+.meeseeks__leg--fill {
+  fill: $color__blue;
+  stroke: transparent;
+}
+.meeseeks__leg--stroke {
+  fill: transparent;
+  stroke: $color__black;
+  stroke-width: $stroke__width;
+}
+.meeseeks__lips {
+  fill: transparent;
+}
+.meeseeks__lips--fill {
+  fill: $color__blue;
+  stroke: transparent;
+}
+.meeseeks__lips--stroke {
+  stroke: $color__black;
+  stroke-width: calc($stroke__width * (2 / 3));
+}
+.meeseeks__mouth-bg {
+  fill: $color__black;
+  stroke: transparent;
+}
+.meeseeks__skull__fill {
+  fill: $color__blue;
+  stroke: transparent;
+}
+.meeseeks__skull__stroke {
+  fill: transparent;
+  stroke: $color__black;
+  stroke-width: $stroke__width;
+}
+.meeseeks__tongue {
+  fill: $color__pink;
+  stroke: $color__pink--dark;
+}
+.meeseeks__tooth {
+  fill: $color__white;
+  stroke: transparent;
+}
+.meeseeks__torso--fill {
+  fill: $color__blue;
+  stroke: transparent;
+}
+.meeseeks__torso--stroke {
+  fill: transparent;
+  stroke: $color__black;
+  stroke-width: $stroke__width;
+}
