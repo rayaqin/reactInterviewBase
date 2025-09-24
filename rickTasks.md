@@ -21,5 +21,3 @@ This codebase was made for the purposes of conducting interviews. It contains in
 - Find and fix (or at least discuss) performance, style and code quality issues and any errors in `App.tsx`, `api.ts`, `LocationEpisodes.tsx`, and `CharacterList.tsx`
 - Explain why MeeSeeks _(the blue character on top)_ appears below the header and not above it in the Z direction
 - Bonus: MeeSeeks disappears when the user clicks on them. Animate his exit so that he gradually shrinks instead of suddenly disappearing, and the content below him should gradually rise as well. <br/>
-  Example: <br/>
-  <img src="./src/assets/meeSeeksDisappears.gif" height="200"/>
