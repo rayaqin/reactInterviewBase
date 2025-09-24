@@ -8,7 +8,6 @@ This codebase was made for the purposes of conducting interviews. It contains in
 - You can use Google.
 - Turn any LLM help off before starting.
 - The code should work with larger datasets and page sizes, so don't optimize for the current page size of 20.
--
 
 ## Intended features
 
@@ -23,4 +22,4 @@ This codebase was made for the purposes of conducting interviews. It contains in
 - Explain why MeeSeeks _(the blue character on top)_ appears below the header and not above it in the Z direction
 - Bonus: MeeSeeks disappears when the user clicks on them. Animate his exit so that he gradually shrinks instead of suddenly disappearing, and the content below him should gradually rise as well. <br/>
   Example: <br/>
-  <img src="./react-typescript-app/src/assets/meeSeeksDisappears.gif" height="200"/>
+  <img src="./src/assets/meeSeeksDisappears.gif" height="200"/>
